@@ -6,13 +6,14 @@ const VehicleService = require("../Services/VehicleService");
 router
 .route("/vehicle/addnew")
 
+
 // authenticate customer
 .post(function (req,res){
-    const {companyID,type, noOfseats, availablestat} = req.body;
+    const {vehicleNumber,model,companyID,noOfseats, availablestat} = req.body;
    
     const vehiService = VehicleService.getVehicleInstance();
 
-    const result = vehiService.addNewVehicle(companyID, type, noOfseats, availablestat);
+    const result = vehiService.addNewVehicle(vehicleNumber,model,companyID,noOfseats, availablestat);
 
     result.then((data) => res.send(data)).catch((err) => console.log(err));
 });
