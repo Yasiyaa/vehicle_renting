@@ -5,7 +5,8 @@ var addvehicle = new Vue({
         model: "",
         companyID: JSON.parse(localStorage.getItem('company')).id,
         noOfseats: "",
-        availablestat: ""
+        availablestat: "",
+        vehicleImage:""
 
     },
     mounted() {},
@@ -17,7 +18,8 @@ var addvehicle = new Vue({
             model: this.model,
             companyID: this.companyID,
             noOfseats: this.noOfseats,
-            availablestat: this.availablestat
+            availablestat: this.availablestat,
+            vehicleImage: this.vehicleImage
         };
   
         axios
@@ -34,6 +36,13 @@ var addvehicle = new Vue({
             console.log(err);
           });
       },
+      fileChange: function (e){
+        let file = e.target.files[0];
+        this.vehicleImage = file.name;
+        let reader = new FileReader();
+    
+        
+}
     },
   });
   

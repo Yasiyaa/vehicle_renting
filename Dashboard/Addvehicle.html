@@ -836,7 +836,7 @@
 
                     <div class="form-group">
                       <label for="carImage">Car Image</label>
-                      <input type="file" id="carImage" name="carImage" accept="image/*" required>
+                      <input type="file" id="carImage" @change="fileChange" name="carImage" accept="image/*" required>
                   </div>
                     <div class="form-group">
                         <button type="button" v-on:click="addNewVehicle">Register Vehicle</button>

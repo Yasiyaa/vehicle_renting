@@ -27,6 +27,8 @@
         });
     </script>
 
+<script src="../Vehicle_Renting/vue.js"></script>
+
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/plugins.min.css" />
@@ -737,7 +739,7 @@
                 <div class="page-inner">
 
 
-                    <section class="ftco-section ftco-no-pt bg-light">
+                    <section class="ftco-section ftco-no-pt bg-light" id="viewVehicle">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-md-12 heading-section text-center ftco-animate mb-5">
@@ -746,17 +748,17 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-3">
+
+                                <div class="col-md-3" v-for="vehicle in vehicles">
                                     <div class="item">
                                         <div class="car-wrap rounded ftco-animate">
                                             <div class="img rounded d-flex align-items-end"
-                                                style="background-image: url(../Vehicle_Renting/images/car-1.jpg);">
+                                            :style="{ backgroundImage: `url('../Vehicle_Renting/images/${vehicle.vehicleImage}')` }">
                                             </div>
                                             <div class="text">
-                                                <h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
+                                                <h2 class="mb-0"><a href="#">{{vehicle.model}}</a></h2>
                                                 <div class="d-flex mb-3">
-                                                    <span class="cat">Cheverolet</span>
-                                                    <p class="price ml-auto">$500 <span>/day</span></p>
+                                                    <span class="cat">{{vehicle.vehicleNumber}}</span>
                                                 </div>
                                                 <p class="d-flex mb-0 d-block"><a href="#"
                                                         class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
@@ -767,131 +769,7 @@
 
                                 </div>
 
-                                <div class="col-md-3">
-                                    <div class="item">
-                                        <div class="car-wrap rounded ftco-animate">
-                                            <div class="img rounded d-flex align-items-end"
-                                                style="background-image: url(../Vehicle_Renting/images/car-1.jpg);">
-                                            </div>
-                                            <div class="text">
-                                                <h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-                                                <div class="d-flex mb-3">
-                                                    <span class="cat">Cheverolet</span>
-                                                    <p class="price ml-auto">$500 <span>/day</span></p>
-                                                </div>
-                                                <p class="d-flex mb-0 d-block"><a href="#"
-                                                        class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
-                                                        class="btn btn-secondary py-2 ml-1">Details</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="item">
-                                        <div class="car-wrap rounded ftco-animate">
-                                            <div class="img rounded d-flex align-items-end"
-                                                style="background-image: url(../Vehicle_Renting/images/car-1.jpg);">
-                                            </div>
-                                            <div class="text">
-                                                <h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-                                                <div class="d-flex mb-3">
-                                                    <span class="cat">Cheverolet</span>
-                                                    <p class="price ml-auto">$500 <span>/day</span></p>
-                                                </div>
-                                                <p class="d-flex mb-0 d-block"><a href="#"
-                                                        class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
-                                                        class="btn btn-secondary py-2 ml-1">Details</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="item">
-                                        <div class="car-wrap rounded ftco-animate">
-                                            <div class="img rounded d-flex align-items-end"
-                                                style="background-image: url(../Vehicle_Renting/images/car-1.jpg);">
-                                            </div>
-                                            <div class="text">
-                                                <h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-                                                <div class="d-flex mb-3">
-                                                    <span class="cat">Cheverolet</span>
-                                                    <p class="price ml-auto">$500 <span>/day</span></p>
-                                                </div>
-                                                <p class="d-flex mb-0 d-block"><a href="#"
-                                                        class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
-                                                        class="btn btn-secondary py-2 ml-1">Details</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="col-md-3">
-                                    <div class="item">
-                                        <div class="car-wrap rounded ftco-animate">
-                                            <div class="img rounded d-flex align-items-end"
-                                                style="background-image: url(../Vehicle_Renting/images/car-1.jpg);">
-                                            </div>
-                                            <div class="text">
-                                                <h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-                                                <div class="d-flex mb-3">
-                                                    <span class="cat">Cheverolet</span>
-                                                    <p class="price ml-auto">$500 <span>/day</span></p>
-                                                </div>
-                                                <p class="d-flex mb-0 d-block"><a href="#"
-                                                        class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
-                                                        class="btn btn-secondary py-2 ml-1">Details</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="item">
-                                        <div class="car-wrap rounded ftco-animate">
-                                            <div class="img rounded d-flex align-items-end"
-                                                style="background-image: url(../Vehicle_Renting/images/car-1.jpg);">
-                                            </div>
-                                            <div class="text">
-                                                <h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-                                                <div class="d-flex mb-3">
-                                                    <span class="cat">Cheverolet</span>
-                                                    <p class="price ml-auto">$500 <span>/day</span></p>
-                                                </div>
-                                                <p class="d-flex mb-0 d-block"><a href="#"
-                                                        class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
-                                                        class="btn btn-secondary py-2 ml-1">Details</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="item">
-                                        <div class="car-wrap rounded ftco-animate">
-                                            <div class="img rounded d-flex align-items-end"
-                                                style="background-image: url(../Vehicle_Renting/images/car-1.jpg);">
-                                            </div>
-                                            <div class="text">
-                                                <h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-                                                <div class="d-flex mb-3">
-                                                    <span class="cat">Cheverolet</span>
-                                                    <p class="price ml-auto">$500 <span>/day</span></p>
-                                                </div>
-                                                <p class="d-flex mb-0 d-block"><a href="#"
-                                                        class="btn btn-primary py-2 mr-1">Book now</a> <a href="#"
-                                                        class="btn btn-secondary py-2 ml-1">Details</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                                
                             </div>
                         </div>
                     </section>
@@ -1074,6 +952,10 @@
         src="../Vehicle_Renting/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="../Vehicle_Renting/js/google-map.js"></script>
     <script src="../Vehicle_Renting/js/main.js"></script>
+
+     <!-- axios javascript -->
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script src="viewVehicle.js"></script>
 </body>
 
 </html> 

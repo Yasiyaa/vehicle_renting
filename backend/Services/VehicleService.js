@@ -7,15 +7,15 @@ class Vehicle {
   }
 
   //add new vehicle
-  async addNewVehicle(vehicleNumber,model,companyID,noOfseats, availablestat) {
+  async addNewVehicle(vehicleNumber,model,companyID,noOfseats, availablestat,vehicleImage) {
     try {
       const insertId = await new Promise((resolve, reject) => {
         const query =
-          "INSERT INTO `vehicle` (`vehicleNumber`, `model`, `companyID`, `noOfseats`, `availablestat`) VALUES (?,?,?,?,?)";
+          "INSERT INTO `vehicle` (`vehicleNumber`, `model`, `companyID`, `noOfseats`, `availablestat`,`vehicleImage`) VALUES (?,?,?,?,?,?)";
 
         connection.query(
           query,
-          [vehicleNumber,model,companyID,noOfseats, availablestat],
+          [vehicleNumber,model,companyID,noOfseats, availablestat,vehicleImage],
           (err, result) => {
             if (err) {
               reject(new Error(err.message));

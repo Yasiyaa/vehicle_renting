@@ -9,11 +9,11 @@ router
 
 // authenticate customer
 .post(function (req,res){
-    const {vehicleNumber,model,companyID,noOfseats, availablestat} = req.body;
+    const {vehicleNumber,model,companyID,noOfseats, availablestat,vehicleImage} = req.body;
    
     const vehiService = VehicleService.getVehicleInstance();
 
-    const result = vehiService.addNewVehicle(vehicleNumber,model,companyID,noOfseats, availablestat);
+    const result = vehiService.addNewVehicle(vehicleNumber,model,companyID,noOfseats, availablestat,vehicleImage);
 
     result.then((data) => res.send(data)).catch((err) => console.log(err));
 });
