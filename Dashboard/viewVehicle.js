@@ -2,7 +2,8 @@ var viewVehicle = new Vue({
     el: "#viewVehicle",
     data: {
        vehicles:[],
-       url:'../Vehicle_Renting/images/'
+       url:'../Vehicle_Renting/images/',
+       
 
     },
     mounted() {
@@ -25,6 +26,28 @@ var viewVehicle = new Vue({
             console.log(err);
           });
       },
+
+      bookVehicles: function (vehicle) {
+
+        var details = {
+          vid:vehicle.vid,
+          cusid:JSON.parse(localStorage.getItem('customer')).id
+          
+        }
+        
+        console.log(vehicle);
+        
+        axios
+        .post("http://localhost:5000/order/addnew",details)
+        .then((res) =>{
+          if (res.status == 200) {
+            alert(" ok!");
+          } else {
+            alert("Error occured!");
+          }
+        })
+      }
+
     },
   });
   

@@ -12,7 +12,6 @@
       href="assets/img/kaiadmin/favicon.ico"
       type="image/x-icon"
     />
-    <script src="../Vehicle_Renting/vue.js"></script>
 
     <!-- Fonts and icons -->
     <script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -44,50 +43,10 @@
 
     <style>
 
-.registration-form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-            margin-left: 500px;
-            margin-top: 100px;
-        }
-        .registration-form h2 {
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .form-group select {
-            height: 40px;
-        }
-        .form-group button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-        .form-group button:hover {
-            background-color: #45a049;
-        }
+
     </style>
+
+<script src="../Vehicle_Renting/vue.js"></script>
   </head>
 
 
@@ -559,39 +518,39 @@
         <div class="container">
           <div class="page-inner">
           
-
-            <div class="registration-form">
-                <h2>Vehicle Registration Form</h2>
-                <form id="addvehicleform">
-                    <div class="form-group">
-                        <label for="vehicleNumber">Vehicle Number</label>
-                        <input type="text" id="vehicleNumber" name="vehicleNumber" v-model = "vehicleNumber" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="vehicleType">Model</label>
-                        <input type="text" id="vehicleType" name="model"   v-model = "model" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="numSeats">Number of Seats</label>
-                        <input type="number" id="numSeats" name="numSeats"  v-model = "noOfseats" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="availableStatus">Available Status</label>
-                        <select id="availableStatus" name="availableStatus"  v-model = "availablestat" required>
-                            <option value="available" >Available</option>
-                            <option value="not_available">Not Available</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="carImage">Car Image</label>
-                      <input type="file" id="carImage" @change="fileChange" name="carImage" accept="image/*" required>
+           
+            <div class="col-md" id="viewBooking">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title">My Bookings</div>
                   </div>
-                    <div class="form-group">
-                        <button type="button" v-on:click="addNewVehicle">Register Vehicle</button>
-                    </div>
-                </form>
-            </div>
+                  <div class="card-body">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Booking ID</th>
+                          <th scope="col">Vehicle Number</th>
+                          <th scope="col">Vehicle Model</th>
+                          <th scope="col">Number of seats</th>
+                         
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr  v-for="booking in bookings">
+                         
+                          <td>{{booking.oid}}</td>
+                          <td>{{booking.vehicleNumber}}</td>
+                          <td>{{booking.model}}</td>
+                          <td>{{booking.noOfseats}}</td>
+                         
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+               
+               
+              </div>
             
           </div>
         </div>
@@ -885,12 +844,10 @@
       });
     </script>
 
-
-    <!-- axios javascript -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="Addvehicle.js"></script>
-    <script src="index.js"></script>
-
-
+      <!-- axios javascript -->
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="ViewPastBookings.js"></script>
+      <script src="index.js"></script>
+      
   </body>
 </html>

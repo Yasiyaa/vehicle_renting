@@ -17,12 +17,21 @@ var login = new Vue({
               console.log(res);
 
               // Create the customer object
-            const customer = {
-              id: res.data[0].cusid, // Assuming res.data[0].companyId contains the company ID
+            const checkCustomer = {
+              id: res.data[0].cusid, 
+              isCustomer: true
+            };
+            const company = {
+              id: res.data[0].cid, 
+              isCompany:false
             };
 
             // Store the customer object in local storage as a JSON string
-            localStorage.setItem("customer", JSON.stringify(customer));
+            localStorage.setItem("checkCustomer", JSON.stringify(checkCustomer));
+            localStorage.setItem("company", JSON.stringify(company));
+         
+
+ 
               window.location.href = "../Dashboard/index.html";
               
             } else {
