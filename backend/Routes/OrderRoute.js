@@ -39,7 +39,7 @@ router.route("/getCustomerDetails").get(async function (req, res) {
 
 router.route("/bookings").get(function (req, res) {
   const cusid = req.query.cusid;
-  console.log(cusid);
+//  console.log(cusid);
   const ordService = OrderService.getOrderInstance();
   const result = ordService.getPastBookingDetails(cusid);
 

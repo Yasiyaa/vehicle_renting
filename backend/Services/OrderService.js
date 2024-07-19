@@ -40,7 +40,7 @@ class Order {
         const query =
           "SELECT o.oid, o.vid,o.cusid,v.vehicleNumber,v.model,v.noOfseats,v.companyID FROM bookings o JOIN  vehicle v ON o.vid = v.vid WHERE  v.companyID = '"+companyID+"' and v.availablestat = 'unavailable' and o.status = 'booked'";
 
-        // console.log(query);
+         console.log(query);
         connection.query(query,(err, result) => {
           if (err) reject(new Error(err.message));
           
@@ -62,7 +62,7 @@ class Order {
         const query =
           "SELECT o.oid,v.vehicleNumber,v.model,v.noOfseats FROM bookings o JOIN  vehicle v ON o.vid = v.vid WHERE  o.cusid ='"+cusid+"'";
 
-         console.log(query);
+      //   console.log(query);
         connection.query(query,(err, result) => {
           if (err) reject(new Error(err.message));
           
