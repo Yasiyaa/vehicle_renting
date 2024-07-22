@@ -1,36 +1,36 @@
 var viewBooking = new Vue({
-    el: "#viewBooking",
+    el: "#viewCompanyVehicles",
     data: {
-       bookings:[],
+       vehicles:[],
        
        
 
     },
     mounted() {
       
-   this.pastBookings();
+   this.getAllVehicles();
         
     },
     updated() {},
     methods: {
         
-    pastBookings: function () {
+    getAllVehicles: function () {
       
         var details = {
-            cusid:JSON.parse(localStorage.getItem('checkCustomer')).id,
+            companyID:JSON.parse(localStorage.getItem('company')).id,
         }
         
         console.log(details)
         axios
-        .get("http://localhost:5000/bookings", {
+        .get("http://localhost:5000/allvehicles", {
             params: {
-              cusid: details.cusid,
+                companyID: details.companyID,
             },
           })
           .then((res) => {
             if (res.status == 200) {
               console.log(res.data);
-              this.bookings = res.data;
+              this.vehicles = res.data;
             } else {
               alert("Error occured!");
             }

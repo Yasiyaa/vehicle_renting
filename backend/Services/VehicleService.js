@@ -96,6 +96,28 @@ class Vehicle {
       console.log(error);
     }
   }
+
+
+  async getAllVehicles(companyID){
+
+    try {
+     
+         const response = await new Promise((resolve, reject) => {
+           const query =
+             "SELECT * FROM `vehicle` where companyID = '"+companyID+"'";
+   
+         //  console.log(query);
+           connection.query(query,(err, result) => {
+             if (err) reject(new Error(err.message));
+             
+             resolve(result);
+           });
+         });
+         return response;
+       } catch (error) {
+         console.log(error);
+       }
+  }
 }
 
 module.exports = Vehicle;

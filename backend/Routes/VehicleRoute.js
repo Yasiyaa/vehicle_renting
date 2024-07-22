@@ -31,4 +31,17 @@ router
   })
 
 
+  
+router
+.route("/allvehicles")
+ // Get all  inquiry
+ .get(function (req, res) {
+  const companyID = req.query.companyID;
+    const vehiService = VehicleService.getVehicleInstance();
+    const result = vehiService.getAllVehicles(companyID);
+    result.then((data) => res.send(data)).catch((err) => console.log(err));
+
+    // res.send(data);
+  })
+
 module.exports = router;

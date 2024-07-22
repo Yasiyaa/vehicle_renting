@@ -27,8 +27,6 @@
         });
     </script>
 
-<script src="../Vehicle_Renting/vue.js"></script>
-
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/plugins.min.css" />
@@ -38,169 +36,99 @@
     <link rel="stylesheet" href="assets/css/demo.css" />
 
     <style>
-        .registration-form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-            margin-left: 500px;
-            margin-top: 100px;
-        }
 
-        .registration-form h2 {
-            margin-bottom: 20px;
-        }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .form-group select {
-            height: 40px;
-        }
-
-        .form-group button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .form-group button:hover {
-            background-color: #45a049;
-        }
     </style>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="../Vehicle_Renting/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="../Vehicle_Renting/css/animate.css">
-
-    <link rel="stylesheet" href="../Vehicle_Renting/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../Vehicle_Renting/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../Vehicle_Renting/css/magnific-popup.css">
-
-    <link rel="stylesheet" href="../Vehicle_Renting/css/aos.css">
-
-    <link rel="stylesheet" href="../Vehicle_Renting/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="../Vehicle_Renting/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../Vehicle_Renting/css/jquery.timepicker.css">
-
-
-    <link rel="stylesheet" href="../Vehicle_Renting/css/flaticon.css">
-    <link rel="stylesheet" href="../Vehicle_Renting/css/icomoon.css">
-    <link rel="stylesheet" href="../Vehicle_Renting/css/style.css">
+    <script src="../Vehicle_Renting/vue.js"></script>
 </head>
 
 
 <body>
     <div class="wrapper">
-       <!-- Sidebar -->
-       <div class="sidebar" data-background-color="dark">
-        <div class="sidebar-logo">
-          <!-- Logo Header -->
-          <div class="logo-header" data-background-color="dark">
-            <a href="index.html" class="logo">
-              <img
-                src="assets/img/kaiadmin/logo_light.svg"
-                alt="navbar brand"
-                class="navbar-brand"
-                height="20"
-              />
-            </a>
-            <div class="nav-toggle">
-              <button class="btn btn-toggle toggle-sidebar">
-                <i class="gg-menu-right"></i>
-              </button>
-              <button class="btn btn-toggle sidenav-toggler">
-                <i class="gg-menu-left"></i>
-              </button>
-            </div>
-            <button class="topbar-toggler more">
-              <i class="gg-more-vertical-alt"></i>
-            </button>
-          </div>
-          <!-- End Logo Header -->
-        </div>
-        <div class="sidebar-wrapper scrollbar scrollbar-inner">
-          <div class="sidebar-content">
-            <ul class="nav nav-secondary" id="iscompanyCheck">
-
-
-
-
-                <li class="nav-item" v-show="iscompany">
-                  <a href="../Dashboard/Addvehicle.html">
-                    <i class="fas fa-layer-group"></i>
-                    <p>Add Vehicle</p>
-                  </a>
-    
-                </li>
-    
-                <li class="nav-item" v-show="customer"> 
-                  <a href="./ViewVehicle.html">
-                    <i class="fas fa-layer-group"></i>
-                    <p>View Vehicles</p>
-                  </a>
-    
-                </li>
-    
-    
-                <li class="nav-item" v-show="iscompany">
-                  <a href="./ViewBookings.html">
-                    <i class="fas fa-layer-group"></i>
-                    <p>View Bookings</p>
-                  </a>
-    
-                </li>
-    
-                <li class="nav-item" v-show="iscompany">
-                    <a href="./ViewCompanyVehicles.html">
-                        <i class="fas fa-layer-group"></i>
-                        <p>View all vehicles</p>
+        <!-- Sidebar -->
+        <div class="sidebar" data-background-color="dark">
+            <div class="sidebar-logo">
+                <!-- Logo Header -->
+                <div class="logo-header" data-background-color="dark">
+                    <a href="index.html" class="logo">
+                        <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand"
+                            height="20" />
                     </a>
+                    <div class="nav-toggle">
+                        <button class="btn btn-toggle toggle-sidebar">
+                            <i class="gg-menu-right"></i>
+                        </button>
+                        <button class="btn btn-toggle sidenav-toggler">
+                            <i class="gg-menu-left"></i>
+                        </button>
+                    </div>
+                    <button class="topbar-toggler more">
+                        <i class="gg-more-vertical-alt"></i>
+                    </button>
+                </div>
+                <!-- End Logo Header -->
+            </div>
+            <div class="sidebar-wrapper scrollbar scrollbar-inner">
+                <div class="sidebar-content">
+                    <ul class="nav nav-secondary" id="iscompanyCheck">
 
-                </li>
-    
-    
-                <li class="nav-item" v-show="customer">
-                  <a href="ViewPastBookings.html">
-                    <i class="fas fa-layer-group"></i>
-                    <p>View Past bookings</p>
-                  </a>
-    
-                </li>
-    
-    
-    
-    
-    
-              </ul>
-          </div>
+
+
+
+                        <li class="nav-item" v-show="iscompany">
+                            <a href="../Dashboard/Addvehicle.html">
+                                <i class="fas fa-layer-group"></i>
+                                <p>Add Vehicle</p>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item" v-show="customer">
+                            <a href="./ViewVehicle.html">
+                                <i class="fas fa-layer-group"></i>
+                                <p>View Vehicles</p>
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item" v-show="iscompany">
+                            <a href="./ViewBookings.html">
+                                <i class="fas fa-layer-group"></i>
+                                <p>View Bookings</p>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item" v-show="iscompany">
+                            <a href="./ViewCompanyVehicles.html">
+                                <i class="fas fa-layer-group"></i>
+                                <p>View all vehicles</p>
+                            </a>
+
+                        </li>
+
+
+
+
+                        <li class="nav-item" v-show="customer">
+                            <a href="ViewPastBookings.html">
+                                <i class="fas fa-layer-group"></i>
+                                <p>View Past bookings</p>
+                            </a>
+
+                        </li>
+
+
+
+
+
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- End Sidebar -->
+        <!-- End Sidebar -->
 
         <div class="main-panel">
             <div class="main-header">
@@ -500,43 +428,59 @@
             </div>
 
             <div class="container">
+                <div class="page-inner" id="viewCompanyVehicles">
+
+
+                    <div class="col-md">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">View all Vehicles</div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col">Vehicle ID</th>
+                                            <th scope="col">Vehicle Number</th>
+                                            <th scope="col">Vehicle Model</th>
+                                            <th scope="col">Number of seats</th>
+                                            <th scope="col">Available Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="vehicle in vehicles">
+
+
+                                            <td>{{vehicle.vid}}</td>
+                                            <td>{{vehicle.vehicleNumber}}</td>
+                                            <td>{{vehicle.model}}</td>
+                                            <td>{{vehicle.noOfseats}}</td>
+                                            <td>{{vehicle.availablestat}}</td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="container">
                 <div class="page-inner">
 
 
-                    <section class="ftco-section ftco-no-pt bg-light" id="viewVehicle">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-                                    <span class="subheading">What we offer</span>
-                                    <h2 class="mb-2">Feeatured Vehicles</h2>
-                                </div>
-                            </div>
-                            <div class="row">
 
-                                <div class="col-md-3" v-for="vehicle in vehicles">
-                                    <div class="item">
-                                        <div class="car-wrap rounded ftco-animate">
-                                            <div class="img rounded d-flex align-items-end"
-                                            :style="{ backgroundImage: `url('../Vehicle_Renting/images/${vehicle.vehicleImage}')` }">
-                                            </div>
-                                            <div class="text">
-                                                <h2 class="mb-0"><a href="#">{{vehicle.model}}</a></h2>
-                                                <div class="d-flex mb-3">
-                                                    <span class="cat">{{vehicle.vehicleNumber}}</span>
-                                                </div>
-                                                <p class="d-flex mb-0 d-block"><a href="#"
-                                                        class="btn btn-primary py-2 mr-1" v-on:click="bookVehicles(vehicle)">Book now</a> <a href="#"
-                                                        class="btn btn-secondary py-2 ml-1">Details</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                
-                            </div>
-                        </div>
-                    </section>
 
                 </div>
             </div>
@@ -698,29 +642,10 @@
         });
     </script>
 
-    <script src="../Vehicle_Renting/js/jquery.min.js"></script>
-    <script src="../Vehicle_Renting/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="../Vehicle_Renting/js/popper.min.js"></script>
-    <script src="../Vehicle_Renting/js/bootstrap.min.js"></script>
-    <script src="../Vehicle_Renting/js/jquery.easing.1.3.js"></script>
-    <script src="../Vehicle_Renting/js/jquery.waypoints.min.js"></script>
-    <script src="../Vehicle_Renting/js/jquery.stellar.min.js"></script>
-    <script src="../Vehicle_Renting/js/owl.carousel.min.js"></script>
-    <script src="../Vehicle_Renting/js/jquery.magnific-popup.min.js"></script>
-    <script src="../Vehicle_Renting/js/aos.js"></script>
-    <script src="../Vehicle_Renting/js/jquery.animateNumber.min.js"></script>
-    <script src="../Vehicle_Renting/js/bootstrap-datepicker.js"></script>
-    <script src="../Vehicle_Renting/js/jquery.timepicker.min.js"></script>
-    <script src="../Vehicle_Renting/js/scrollax.min.js"></script>
-    <script
-        src="../Vehicle_Renting/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="../Vehicle_Renting/js/google-map.js"></script>
-    <script src="../Vehicle_Renting/js/main.js"></script>
-
-     <!-- axios javascript -->
-     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-     <script src="viewVehicle.js"></script>
-     <script src="index.js"></script>
+    <!-- axios javascript -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="ViewCompanyVehicles.js"></script>
+    <script src="index.js"></script>
 </body>
 
-</html> 
+</html>

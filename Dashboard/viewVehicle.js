@@ -31,7 +31,7 @@ var viewVehicle = new Vue({
 
         var details = {
           vid:vehicle.vid,
-          cusid:JSON.parse(localStorage.getItem('customer')).id
+          cusid:JSON.parse(localStorage.getItem('checkCustomer')).id
           
         }
         
