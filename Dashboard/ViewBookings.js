@@ -67,6 +67,29 @@ var viewBooking = new Vue({
         
       },
 
+
+      cancelBooking: function(booking) {
+        //console.log(booking.vid);
+        var OID = {
+         vid:booking.vid,
+         oid:booking.oid
+        }
+        axios
+       .post("http://localhost:5000/cancelbooking",OID)
+       .then((res) => {
+         if (res.status == 200) {
+           console.log(res);
+           alert("Booking canceled !");
+         } else {
+           alert("Incorrect data");
+         }
+       })
+       .catch((err) => {
+         console.log(err);
+       });
+         
+       },
+
       getCustomerDetails: function () {
    
         axios

@@ -60,7 +60,7 @@ class Order {
 
       const response = await new Promise((resolve, reject) => {
         const query =
-          "SELECT o.oid,v.vehicleNumber,v.model,v.noOfseats FROM bookings o JOIN  vehicle v ON o.vid = v.vid WHERE  o.cusid ='"+cusid+"'";
+          "SELECT o.oid,v.vehicleNumber,v.model,v.noOfseats,v.vid FROM bookings o JOIN  vehicle v ON o.vid = v.vid WHERE  o.cusid ='"+cusid+"'";
 
       //   console.log(query);
         connection.query(query,(err, result) => {
@@ -75,6 +75,27 @@ class Order {
     }
   }
 
+
+    // get all customer current booking data
+    async getcurrentBookingDetails(cusid) {
+      try {
+  
+        const response = await new Promise((resolve, reject) => {
+          const query =
+            "SELECT o.oid,v.vehicleNumber,v.model,v.noOfseats,v.vid FROM bookings o JOIN  vehicle v ON o.vid = v.vid WHERE  o.cusid ='"+cusid+"' and o.status = 'booked' ";
+  
+         // console.log(query);
+          connection.query(query,(err, result) => {
+            if (err) reject(new Error(err.message));
+            
+            resolve(result);
+          });
+        });
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
   // add weight to the vehicle
   async vehicleRate(vid) {
@@ -125,7 +146,7 @@ class Order {
 
       const response = await new Promise((resolve, reject) => {
         const query =
-          "UPDATE `bookings` SET `status` = 'available' WHERE `bookings`.`oid` = '"+oid+"'";
+          "UPDATE `bookings` SET `status` = 'complete' WHERE `bookings`.`oid` = '"+oid+"'";
 
        //  console.log(query);
         connection.query(query,(err, result) => {
@@ -141,6 +162,28 @@ class Order {
   }
 
 
+    // booking complete
+    async bookingCanceled(oid) {
+      try {
+  
+        const response = await new Promise((resolve, reject) => {
+          const query =
+            "UPDATE `bookings` SET `status` = 'canceled' WHERE `bookings`.`oid` = '"+oid+"'";
+  
+         //  console.log(query);
+          connection.query(query,(err, result) => {
+            if (err) reject(new Error(err.message));
+            
+            resolve(result);
+          });
+        });
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+
 
   // booking customer details
   async getCustomerDetails() {
@@ -149,7 +192,7 @@ class Order {
 
       const response = await new Promise((resolve, reject) => {
         const query =
-          "SELECT c.cusid, c.fname, c.tele, c.email FROM customers c JOIN bookings b ON c.cusid = b.cusid WHERE  b.status = 'booked';";
+          "SELECT c.cusid, c.fname, c.tele, c.email, b.oid FROM customers c JOIN bookings b ON c.cusid = b.cusid WHERE  b.status = 'booked';";
 
       //  console.log(query);
         connection.query(query,(err, result) => {

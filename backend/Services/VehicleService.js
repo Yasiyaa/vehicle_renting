@@ -58,7 +58,7 @@ class Vehicle {
     try {
       const response = await new Promise((resolve, reject) => {
         const query =
-          "SELECT * FROM  vehicle where availablestat = 'available'";
+          "SELECT * FROM  vehicle where availablestat = 'available' and removeStat = 'false'";
 
         connection.query(query, (err, results) => {
           if (err) reject(new Error(err.message));
@@ -104,7 +104,29 @@ class Vehicle {
      
          const response = await new Promise((resolve, reject) => {
            const query =
-             "SELECT * FROM `vehicle` where companyID = '"+companyID+"'";
+             "SELECT * FROM `vehicle` where companyID = '"+companyID+"' and removeStat = 'false'";
+   
+         //  console.log(query);
+           connection.query(query,(err, result) => {
+             if (err) reject(new Error(err.message));
+             
+             resolve(result);
+           });
+         });
+         return response;
+       } catch (error) {
+         console.log(error);
+       }
+  }
+
+
+  async removeVehicle(vid){
+
+    try {
+     
+         const response = await new Promise((resolve, reject) => {
+           const query =
+             "UPDATE `vehicle` SET `removeStat` = 'true' WHERE `vehicle`.`vid` = '"+vid+"'";
    
          //  console.log(query);
            connection.query(query,(err, result) => {

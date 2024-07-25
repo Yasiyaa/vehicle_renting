@@ -19,6 +19,8 @@ router
 });
 
 
+
+
 router
 .route("/vehicle")
  // Get all  inquiry
@@ -39,6 +41,19 @@ router
   const companyID = req.query.companyID;
     const vehiService = VehicleService.getVehicleInstance();
     const result = vehiService.getAllVehicles(companyID);
+    result.then((data) => res.send(data)).catch((err) => console.log(err));
+
+    // res.send(data);
+  })
+
+
+  router
+.route("/deleteVehicle")
+ // delete vehicle
+ .post(function (req, res) {
+  const vid = req.body.vid
+    const vehiService = VehicleService.getVehicleInstance();
+    const result = vehiService.removeVehicle(vid);
     result.then((data) => res.send(data)).catch((err) => console.log(err));
 
     // res.send(data);

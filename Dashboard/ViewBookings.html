@@ -439,7 +439,7 @@
                       <th scope="col">Vehicle Number</th>
                       <th scope="col">Vehicle Model</th>
                       <th scope="col">Number of seats</th>
-                      <th scope="col">Company ID</th>
+                      
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
@@ -452,8 +452,9 @@
                       <td>{{booking.vehicleNumber}}</td>
                       <td>{{booking.model}}</td>
                       <td>{{booking.noOfseats}}</td>
-                      <td>{{booking.companyID}}</td>
-                      <td><button class="btn-label-info" v-on:click="markReturn(booking)">Mark as retured</button></td>
+                     
+                      <td><button class="btn-label-info" v-on:click="markReturn(booking)">Mark as retured</button>
+                      <button class="btn-label-warning" v-on:click="cancelBooking(booking)">Cancel Booking</button></td>
 
                   </tbody>
                 </table>
@@ -475,6 +476,7 @@
                   <thead>
                     <tr>
                       <th scope="col">Customer ID</th>
+                      <th scope="col">Booking ID</th>
                       <th scope="col">Customer Name</th>
                       <th scope="col">Telephone</th>
                       <th scope="col">Email</th>
@@ -486,6 +488,7 @@
                     <tr v-for="cusdata in cusDetails">
 
                       <td>{{cusdata.cusid}}</td>
+                      <td>{{cusdata.oid}}</td>
                       <td>{{cusdata.fname}}</td>
                       <td>{{cusdata.tele}}</td>
                       <td>{{cusdata.email}}</td>

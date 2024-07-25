@@ -46,6 +46,15 @@ router.route("/bookings").get(function (req, res) {
   result.then((data) => res.send(data)).catch((err) => console.log(err));
 });
 
+router.route("/currentbookings").get(function (req, res) {
+  const cusid = req.query.cusid;
+//  console.log(cusid);
+  const ordService = OrderService.getOrderInstance();
+  const result = ordService.getcurrentBookingDetails(cusid);
+
+  result.then((data) => res.send(data)).catch((err) => console.log(err));
+});
+
 router.route("/markavailable").post(function (req, res) {
   const vid = req.body.vid;
   const oid = req.body.oid;
@@ -55,6 +64,19 @@ router.route("/markavailable").post(function (req, res) {
   const ordService = OrderService.getOrderInstance();
   const result = ordService.vehicleAvailableStatus(vid);
   ordService.bookingComplete(oid);
+
+  result.then((data) => res.send(data)).catch((err) => console.log(err));
+});
+
+router.route("/cancelbooking").post(function (req, res) {
+  const vid = req.body.vid;
+  const oid = req.body.oid;
+
+  console.log(vid);
+
+  const ordService = OrderService.getOrderInstance();
+  const result = ordService.vehicleAvailableStatus(vid);
+  ordService.bookingCanceled(oid);
 
   result.then((data) => res.send(data)).catch((err) => console.log(err));
 });
